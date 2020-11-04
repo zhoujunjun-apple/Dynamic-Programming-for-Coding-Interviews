@@ -14,6 +14,16 @@ func AddRecursive(arr []int, idx int) {
 	arr[idx] += arr[idx-1]
 }
 
+// AddPreviousIterative function use iterative rather than recursive
+func AddPreviousIterative(arr []int) {
+	if len(arr) <= 1 {
+		return
+	}
+	for idx := 1; idx < len(arr); idx++ {
+		arr[idx] += arr[idx-1]
+	}
+}
+
 func main() {
 
 }
