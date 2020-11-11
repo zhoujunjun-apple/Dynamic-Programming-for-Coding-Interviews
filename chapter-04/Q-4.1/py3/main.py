@@ -1,3 +1,5 @@
+import numpy as np
+
 gcount = 0
 
 def wayNumRecursive(rowIdx: int, colIdx: int)->int:
@@ -12,6 +14,20 @@ def wayNumRecursive(rowIdx: int, colIdx: int)->int:
     return wayNumRecursive(rowIdx, colIdx-1) + wayNumRecursive(rowIdx-1, colIdx)
 
 
+memory = np.zeros(shape=(100, 100), dtype=np.int32)
+
+def wayNumRecursiveMem(rowIdx: int, colIdx: int)->int:
+    """like function wayNumRecursive, but this one has momory"""
+    if memory[rowIdx][colIdx] != 0:
+        return memory[rowIdx][colIdx]
+
+    if rowIdx == 0 or colIdx == 0:
+        memory[rowIdx][colIdx] = 1
+    else:
+        memory[rowIdx][colIdx] = wayNumRecursiveMem(rowIdx-1, colIdx) + wayNumRecursiveMem(rowIdx, colIdx-1)
+    return memory[rowIdx][colIdx]
+
+
 def wayNumDP(rows: int, cols: int)->int:
     import numpy as np
     
@@ -24,5 +40,7 @@ def wayNumDP(rows: int, cols: int)->int:
 
 if __name__ == "__main__":
     recursiveWay = wayNumRecursive(rowIdx=10, colIdx=10)
+    memoWay = wayNumRecursiveMem(rowIdx=10, colIdx=10)
     dpWay = wayNumDP(rows=11, cols=11)
-    print("recursive: {}({} calls), dp: {}\n".format(recursiveWay, gcount, dpWay))
+    print("recursive: {}({} calls), memo: {}, dp: {}\n"\
+    "".format(recursiveWay, gcount, memoWay, dpWay))
