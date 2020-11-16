@@ -1,0 +1,9 @@
+Find length of longest substring of a given string of digits, such that sum of digits in the first half and second half of the substring is same.
+For example:
+Input: 142124
+Output: 6
+Beacuse 1+4+2 = 1+2+4
+
+Input: 9430723
+Output: 4
+Beacuse 4+3=0+7
