@@ -37,6 +37,9 @@ func BalanceSumSubstringPartDP(s string) (int, error) {
 			sumRightHalf := dp[mid+1][right]
 			dp[left][right] = sumLeftHalf + sumRightHalf
 
+			// substring length(=step+1) should be even number
+			// left half sum should equal to right half sum
+			// substring length should larger than the previous one
 			if step%2 == 1 && sumLeftHalf == sumRightHalf && ret < step+1 {
 				ret = step + 1
 			}
