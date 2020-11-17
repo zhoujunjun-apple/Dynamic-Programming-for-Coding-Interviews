@@ -1,0 +1,14 @@
+Given a binary tree, for each node, add sum of all the nodes in its hierarchy to its value.
+Below picture shows a sample input and output.
+eg:
+input binary tree(| means left node, eg: node 4 has left child node 6):
+2----1----2
+ |---4----9
+      |   |----3
+      |---6
+
+output binar tree:
+27---3----2
+ |---22---12
+      |   |----3
+      |---6
