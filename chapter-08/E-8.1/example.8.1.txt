@@ -1,0 +1,4 @@
+    Given a two-dimensional square matrix cost[][] of order M*N where cost[i][j] represents the cost of passing though cell(i, j).
+Total cost to reach a particular cell is the sum of costs of all the cells in that path (including the starting and final cell).
+We can only move either downward or rightward.
+    Write a function that return the minimum cost of moving from the top-left cell to bottom-right cell of the matrix.
