@@ -1,0 +1,1 @@
+similar with example 8.1, but we are allowed to move in three directions, right, down and diagonally lower cells.
