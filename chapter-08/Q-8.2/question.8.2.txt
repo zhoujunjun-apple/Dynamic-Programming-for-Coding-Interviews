@@ -1,0 +1,1 @@
+Same problem with example 8.2. But the size of the plot is changed to 3*N. The size of tile remains same, 2*1
