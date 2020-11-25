@@ -69,6 +69,15 @@ func TestNativeDP(t *testing.T) {
 	}
 }
 
+func TestKadane(t *testing.T) {
+	for i, tc := range testCases {
+		got := Kadane(tc.arr)
+		if got != tc.max {
+			t.Errorf("index=%d, expected=%d, got=%d\n", i, tc.max, got)
+		}
+	}
+}
+
 func BenchmarkBruteForce(b *testing.B) {
 	tcLen := len(testCases)
 	for i := 0; i < b.N; i++ {
@@ -82,5 +91,13 @@ func BenchmarkNativeDP(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		ri := rand.Intn(tcLen)
 		nativeDP(testCases[ri].arr)
+	}
+}
+
+func BenchmarkKadane(b *testing.B) {
+	tcLen := len(testCases)
+	for i := 0; i < b.N; i++ {
+		ri := rand.Intn(tcLen)
+		Kadane(testCases[ri].arr)
 	}
 }

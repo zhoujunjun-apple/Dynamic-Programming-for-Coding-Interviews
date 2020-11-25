@@ -59,6 +59,30 @@ func nativeDP(arr []int) int {
 	return max
 }
 
+// Kadane function use Kadane's Algorithm.
+// not really understand it.
+// it only works for non-negative result
+func Kadane(arr []int) int {
+	arrLen := len(arr)
+	if arrLen < 1 {
+		return 0
+	}
+
+	maxSumSoFar := 0
+	maxSumEndingHere := 0
+
+	for i := 0; i < arrLen; i++ {
+		maxSumEndingHere += arr[i]
+		if maxSumEndingHere < 0 {
+			maxSumEndingHere = 0
+		}
+		if maxSumSoFar < maxSumEndingHere {
+			maxSumSoFar = maxSumEndingHere
+		}
+	}
+	return maxSumSoFar
+}
+
 func main() {
 
 }
