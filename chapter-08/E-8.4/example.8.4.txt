@@ -1,0 +1,5 @@
+Given an array of integers, write a function that returns the maximum sum of sub array, such that elements are contiguous.
+eg:
+Input array: [-2, -3, 4, -1, -2, 1, 5, -3]
+output: 7
+Because 4 + (-1) + (-2) + 1 + 5 = 7
