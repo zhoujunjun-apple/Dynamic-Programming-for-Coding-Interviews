@@ -1,0 +1,5 @@
+A variation to the problem asked in Question 9.1:
+At some places there is repair work going on and hence you cannot take those routes.
+Unavailable route information may be given in the form of point array.
+(eg: from point (2,1) to point(3,1) the route is not available).
+Write a function that returns the total number of unique ways to go some point (x,y) from origin (0,0)
