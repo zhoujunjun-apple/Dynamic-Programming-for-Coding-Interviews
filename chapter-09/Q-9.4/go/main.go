@@ -171,6 +171,26 @@ func getMin(is []int) (int, error) {
 	return min, nil
 }
 
+// NativeDP function try use to implement dp
+// NOT IMPLEMENTED!
+func NativeDP(start, end cell) int {
+	if start.x == end.x && start.y == end.y {
+		return 0
+	}
+	if isOneStepAway(start, end) {
+		return 1
+	}
+
+	dp := make([][]int, xMax)
+	for i := range dp {
+		dp[i] = make([]int, yMax)
+	}
+
+	// have no idea about how to initializing the dp matrix
+	// also have no clue about how to fill up the dp: what order do I use to fill up dp matrix?
+	return 0
+}
+
 func main() {
 
 }
