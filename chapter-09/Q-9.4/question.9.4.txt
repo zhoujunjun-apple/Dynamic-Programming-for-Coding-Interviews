@@ -1,0 +1,19 @@
+Minimum Chess Moves Problem
+
+In the game of chess a Knight can move 2.5 steps (a square that can be reached by moving two squares horizontally and one square vertically,
+or two squares vertically and one square horizontally). A King, can move only one step (either horizontally, vertically or diagonally).
+
+We have designed a special piece that can move either like a Knight or like a King.
+If that piece is named P. Given that P is in a particular cell, and you want to move it to another cell.
+Then what is the minimum number of moves it takes P to go from source to desination.
+
+Write a function that accepts source and destination cells and return the minimum number of moves it will take P to move from source to destination cell.
+
+explanation:
+assume the bottom left cell is (0,0), then the chess is from (0,0) to (7,7).
+assume the piece P is at cell (i, j), then P can moves to 16 cells as follows:
+(i+1,j),(i-1,j)
+(i,j+1),(i,j-1)
+(i+1,j-1),(i+1,j+1),(i-1,j-1),(i-1,j+1)
+(i-2,j+1),(i-2,j-1),(i+2,j-1),(i+2,j+1)
+(i-1,j+2),(i-1,j-2),(i+1,j+2),(i+1,j-2) 
