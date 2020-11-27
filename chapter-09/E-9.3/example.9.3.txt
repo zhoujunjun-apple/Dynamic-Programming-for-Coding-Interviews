@@ -1,0 +1,5 @@
+String C is said to be interleaving of string A and string B if it contains all the characters of A and B and the relative order of characters of both the strings is preserved in C.
+For example, if values of A, B and C are given below.
+A=xyz, B=abcd
+C=xabyczd
+Then, string C is the interleaving of strings A and B.
