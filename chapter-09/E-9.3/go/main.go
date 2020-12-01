@@ -104,6 +104,59 @@ func getMin(is ...int) int {
 	return min
 }
 
+// SimpleDP function like NativeDP, but only consider 2-dim dp.
+// Since a[0,ri] and b[0, ki] are the only two free variables, c[0, ri+ki] isn't.
+// It' much easy to understand compared with NativeDP, in which 3-dim dp matrix is used.
+func SimpleDP(a, b, c string) bool {
+	aLen, bLen, cLen := len(a), len(b), len(c)
+	if aLen+bLen != cLen {
+		return false
+	}
+
+	// dp[ri][ki]表示a的前ri个字符 和 b的前ki个字符是否能够按照interleaving的方式构成 c的前ri+ki个字符
+	dp := make([][]bool, aLen+1)
+	for i := range dp {
+		dp[i] = make([]bool, bLen+1)
+	}
+
+	// ignore b, only consider a and c
+	for ri := 1; ri <= aLen; ri++ {
+		if a[:ri] == c[:ri] {
+			dp[ri][0] = true
+		} else {
+			dp[ri][0] = false
+		}
+	}
+
+	// ignore a, only consider b and c
+	for ki := 1; ki <= bLen; ki++ {
+		if b[:ki] == c[:ki] {
+			dp[0][ki] = true
+		} else {
+			dp[0][ki] = false
+		}
+	}
+
+	// fill up the dp matrix
+	for ri := 1; ri <= aLen; ri++ {
+		for ki := 1; ki <= bLen; ki++ {
+			// the index of a, b and c, respectively
+			ai, bi, ci := ri-1, ki-1, ri+ki-1
+			if a[ai] == c[ci] && b[bi] == c[ci] {
+				dp[ri][ki] = dp[ri-1][ki] || dp[ri][ki-1]
+			} else if a[ai] == c[ci] && b[bi] != c[ci] {
+				dp[ri][ki] = dp[ri-1][ki]
+			} else if a[ai] != c[ci] && b[bi] == c[ci] {
+				dp[ri][ki] = dp[ri][ki-1]
+			} else {
+				dp[ri][ki] = false
+			}
+		}
+	}
+
+	return dp[aLen][bLen]
+}
+
 func main() {
 
 }

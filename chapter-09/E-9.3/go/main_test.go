@@ -119,3 +119,13 @@ func TestNativeDP(t *testing.T) {
 		}
 	}
 }
+
+func TestSimpleDP(t *testing.T) {
+	for i, tc := range gTestCases {
+		got := SimpleDP(tc.a, tc.b, tc.c)
+		if got != tc.exp {
+			t.Errorf("%d-th: %s|%s|%s expected=%t, got=%t\n",
+				i, tc.a, tc.b, tc.c, tc.exp, got)
+		}
+	}
+}
