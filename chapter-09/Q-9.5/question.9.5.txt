@@ -1,0 +1,4 @@
+Given two strings, print all the interleavings of the string.
+For example,
+INPUT: AB, XY
+OUTPUT: ABXY, AXBY, AXYB, XABY, XAYB, XYAB
