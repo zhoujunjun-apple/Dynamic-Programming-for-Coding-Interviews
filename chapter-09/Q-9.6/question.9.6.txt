@@ -1,0 +1,2 @@
+In Example 9.3, if all the characters in string A are different from those in string B, then do we still need the two-dimensional matrix?
+Suggest a O(n+m) time algorithm that takes O(1) extra memory and gives the right result for this particular case.
