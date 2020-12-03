@@ -103,6 +103,32 @@ func checkAscending(t *testing.T, idx int, arr *[]int) {
 	}
 }
 
+func TestLoosePartition(t *testing.T) {
+	for idx, tarr := range gTestCases {
+		arrLen := len(tarr)
+		pivot := (arrLen - 1) / 2
+		pval := tarr[pivot]
+
+		pidx := loosePartition(&tarr, 0, arrLen-1, pivot)
+		checkLoosePartition(t, &tarr, idx, pidx, pval)
+	}
+}
+
+func checkLoosePartition(t *testing.T, arr *[]int, idx, pidx, pval int) {
+	for leftIdx := 0; leftIdx < pidx; leftIdx++ {
+		if (*arr)[leftIdx] > pval {
+			t.Errorf("index=%d, arr: %v, larger value: %d on the left of pivot value: %d\n",
+				idx, *arr, (*arr)[leftIdx], pval)
+		}
+	}
+	for rIdx := pidx; rIdx < len(*arr); rIdx++ {
+		if (*arr)[rIdx] < pval {
+			t.Errorf("index=%d, arr: %v, lower value: %d on the right of pivot value: %d\n",
+				idx, *arr, (*arr)[rIdx], pval)
+		}
+	}
+}
+
 func TestPartition(t *testing.T) {
 	for idx, tarr := range gTestCases {
 		arrLen := len(tarr)

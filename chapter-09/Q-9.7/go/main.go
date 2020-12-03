@@ -30,9 +30,9 @@ func quickSort(arr *[]int, left, right int) {
 		}
 	} else {
 		var pivot int = left + (right-left)/2
-		// partition函数将arr[left, right]分成arr[left, pidx]和arr[pidx, right]两部分
-		// 前者中的元素全部不大于arr[pidx], 后者中的元素全部不小于arr[pidx]
+		// partition函数将arr[left, right]分为三个部分
 		pidx := partition(arr, left, right, pivot)
+		// if use loosePartition function， quickSort function must change it's logic
 
 		if pidx-left > 1 {
 			// 递归对左边区间排序
@@ -75,6 +75,26 @@ func partition(arr *[]int, i, j, pivot int) int {
 	}
 
 	// i represents the first position of arr[i, k), in which elements value have the same value with pVal
+	return i
+}
+
+// loosePartition function 将arr[i, j]切分为两部分：
+// 不超过arr[pivot]的元素 和 不小于arr[pivot]的元素
+// 返回值表示这两个部分的切分点
+func loosePartition(arr *[]int, i, j, pivot int) int {
+	pVal := (*arr)[pivot]
+
+	for i <= j {
+		now := (*arr)[i]
+
+		if now < pVal {
+			i++
+		} else {
+			swap(arr, i, j)
+			j--
+		}
+	}
+
 	return i
 }
 
