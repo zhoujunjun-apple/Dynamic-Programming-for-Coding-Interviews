@@ -77,3 +77,12 @@ func TestRecursion(t *testing.T) {
 		}
 	}
 }
+
+func TestNativeDP(t *testing.T) {
+	for i, tc := range gTestCases {
+		got := NativeDP(tc.s1, tc.s2)
+		if got != tc.exp {
+			t.Errorf("index=%d, s1=%s, s2=%s, expected=%d, got=%d\n", i, tc.s1, tc.s2, tc.exp, got)
+		}
+	}
+}
