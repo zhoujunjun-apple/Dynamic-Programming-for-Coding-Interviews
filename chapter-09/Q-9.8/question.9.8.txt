@@ -1,0 +1,6 @@
+In Example 9.4, we are just returning a boolean value true or false.
+We are not actually printing the subset that sum up to X.
+For example, if array is {3,2,7,1} and X is 6, the function return true, but it will not print the subset (3,2,1) whose sum is 6.
+
+Write a function that prints the subset and return true if there exist a subset whose sum is equal to X.
+If no such subset exists, then the function should not print anything and just return false.
