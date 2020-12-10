@@ -1,0 +1,6 @@
+Longest Common Subsequence
+Given two strings, write a function that returns the total number of characters in their Longest Common Subsequence.
+For example,
+s1=ABCD
+s2=AEBD
+output: 3
