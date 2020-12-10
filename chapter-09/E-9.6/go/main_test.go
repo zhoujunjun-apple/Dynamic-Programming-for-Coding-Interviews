@@ -8,6 +8,11 @@ var gTestCases = []struct {
 	exp result // all the possible LCS of s1 and s2
 }{
 	{
+		s1:  "abc",
+		s2:  "123",
+		exp: result{"": void{}},
+	},
+	{
 		s1:  "",
 		s2:  "abc",
 		exp: result{"": void{}},
@@ -55,11 +60,7 @@ var gTestCases = []struct {
 			"24abcd": void{},
 		},
 	},
-	{
-		s1:  "abc",
-		s2:  "123",
-		exp: result{"": void{}},
-	},
+
 	{
 		s1: "abc",
 		s2: "cde",
@@ -91,7 +92,7 @@ var gTestCases = []struct {
 		s2: "abc2233",
 		exp: result{
 			"abc233": void{},
-			"abd223": void{},
+			"abc223": void{},
 		},
 	},
 	{
@@ -120,11 +121,11 @@ func TestRecursion(t *testing.T) {
 	}
 }
 
-// func TestNativeDP(t *testing.T) {
-// 	for i, tc := range gTestCases {
-// 		got := NativeDP(tc.s1, tc.s2)
-// 		// if got != tc.exp {
-// 		// 	t.Errorf("index=%d, s1=%s, s2=%s, expected=%d, got=%d\n", i, tc.s1, tc.s2, tc.exp, got)
-// 		// }
-// 	}
-// }
+func TestNativeDP(t *testing.T) {
+	for i, tc := range gTestCases {
+		got := NativeDP(tc.s1, tc.s2)
+		if _, exist := tc.exp[got]; !exist {
+			t.Errorf("index=%d, s1=%s, s2=%s, unexpectly got=%s\n", i, tc.s1, tc.s2, got)
+		}
+	}
+}
