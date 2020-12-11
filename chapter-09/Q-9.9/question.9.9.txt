@@ -1,0 +1,5 @@
+Given an array of integers write code that returns length of the longest monotonically increasing subsequence(LMIS) in the array.
+eg:
+INPUT: [1,3,2,5,4,2,6,7,0,2]
+OUTPUT: 5
+Becase the subsequence [1,2,4,6,7] satisfied.
