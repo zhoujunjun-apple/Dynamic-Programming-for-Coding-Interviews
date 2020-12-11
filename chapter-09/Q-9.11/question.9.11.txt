@@ -1,0 +1,8 @@
+A sequence is bitonic if it is first monotonically increases and then monotonically decrease.
+For example, the sequences (1,4,6,8,3,-2), (9,2,-4,-10,-15), (4,3,2,1), and (1,2,3,4) are all bitonic, but
+(1,3,12,4,2,10) is not bitnoic.
+
+Write a function that accepts an array of integers and returns the length of longest bitnoic subsequence(LBS) in the array.
+
+Please note that a sequence in increasing order is bitnoic with empty decreasing part and
+similarly a sequence in decreasing order is bitnoic with empty increasing part.
